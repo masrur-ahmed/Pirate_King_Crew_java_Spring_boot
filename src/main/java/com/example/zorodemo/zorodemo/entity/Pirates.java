@@ -2,6 +2,7 @@ package com.example.zorodemo.zorodemo.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
+import com.example.zorodemo.zorodemo.util.DamageTypeConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,10 +35,8 @@ public class Pirates {
     @DynamoDBAttribute
     private String devilFruitName;
 
-    //@DynamoDBAttribute
-    //private Damage dmg;
     @DynamoDBAttribute
-    @DynamoDBTypeConverted(converter = GeoTypeConverter.class)
-    private Geo geo;
+    @DynamoDBTypeConverted(converter = DamageTypeConverter.class)
+    private Damage damage;
 
 }

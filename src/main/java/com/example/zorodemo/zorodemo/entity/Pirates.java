@@ -37,8 +37,8 @@ public class Pirates {
     @DynamoDBAttribute
     private String devilFruitName;
 
-    @DynamoDBAttribute
-    private Damage dmg;
+    //@DynamoDBAttribute
+    //private Damage dmg;
 
 
 }

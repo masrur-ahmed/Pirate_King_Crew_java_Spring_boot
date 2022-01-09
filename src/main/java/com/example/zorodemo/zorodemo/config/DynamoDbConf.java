@@ -17,7 +17,7 @@ public class DynamoDbConf {
         private static final String SIGNINGREGION = "ap-southeast-1";
         private static final String ACCESSKEY ="Key";
         private static final String SECRETKEY = "Key";
-        @Bean
+        @Bean(name= "dynamoDB")
         public DynamoDBMapper dynamoDBMapper() {
             return new DynamoDBMapper(buildAmazonDynamoDB());
         }

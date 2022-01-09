@@ -13,25 +13,25 @@ public class PirateController {
     private PirateRepository pirateRepository = new PirateRepository();
 
     @PostMapping("/pirate")
-    public Pirates savePlayer(@RequestBody Pirates pirate) {
+    public Pirates savePirate(@RequestBody Pirates pirate) {
 
         return pirateRepository.save(pirate);
     }
 
     @GetMapping("/pirate/{id}")
-    public Pirates getPlayer(@PathVariable("id") String crewid) {
+    public Pirates getPirate(@PathVariable("id") String crewid) {
 
         return pirateRepository.getCrewById(crewid);
     }
 
     @DeleteMapping("/pirate/{id}")
-    public String deletePlayer(@PathVariable("id") String crewid) {
+    public String deletePirate(@PathVariable("id") String crewid) {
 
         return  pirateRepository.delete(crewid);
     }
 
     @PutMapping("/pirate/{id}")
-    public String updatePlayer(@PathVariable("id") String crewid, @RequestBody Pirates pirate) {
+    public String updatePirate(@PathVariable("id") String crewid, @RequestBody Pirates pirate) {
         return pirateRepository.update(crewid,pirate);
     }
 

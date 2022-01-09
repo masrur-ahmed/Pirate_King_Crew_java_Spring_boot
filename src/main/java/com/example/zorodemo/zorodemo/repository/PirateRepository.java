@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PirateRepository {
 
-    public DynamoDBMapper dynamoDBMapper;
+    private DynamoDBMapper dynamoDBMapper;
 
     public PirateRepository() {
         dynamoDBMapper = new DynamoDbConf().new DynamoDbConfiguration().dynamoDBMapper();

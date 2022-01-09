@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class DamageRepository {
-    public DynamoDBMapper dynamoDBMapper;
+    private final DynamoDBMapper dynamoDBMapper;
 
     public DamageRepository() {
         dynamoDBMapper = new DynamoDbConf().new DynamoDbConfiguration().dynamoDBMapper();

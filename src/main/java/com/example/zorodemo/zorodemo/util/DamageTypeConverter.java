@@ -2,10 +2,13 @@ package com.example.zorodemo.zorodemo.util;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
 import com.example.zorodemo.zorodemo.entity.Damage;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DamageTypeConverter implements DynamoDBTypeConverter<String, Damage>{
 
-    @Override
+    /*@Override
     public String convert(Damage damage) {
         String dmgValue = null;
         try{
@@ -28,6 +31,36 @@ public class DamageTypeConverter implements DynamoDBTypeConverter<String, Damage
             }
         }
         catch (Exception e){
+            e.printStackTrace();
+        }
+        return dmg;
+    }*/
+    ObjectMapper mapper;
+    @Override
+    public String convert(Damage damage){
+        String dmgValue = null;
+        mapper = new ObjectMapper();
+        try{
+            if(damage != null) {
+                dmgValue = mapper.writeValueAsString(damage);
+                System.out.println(dmgValue);
+            }
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return dmgValue;
+    }
+    @Override
+    public Damage unconvert(String s){
+        Damage dmg = null;
+        try{
+            if(s != null && s.length()!=0){
+                dmg = mapper.readValue(s, Damage.class);
+            }
+
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return dmg;

@@ -10,7 +10,11 @@ import java.util.List;
 
 @RestController
 public class DamageController {
-    private DamageRepository damageRepository = new DamageRepository();
+    private final DamageRepository damageRepository;
+
+    public DamageController(DamageRepository damageRepository) {
+        this.damageRepository = damageRepository;
+    }
 
     @PostMapping("/move")
     public Damage save(@RequestBody Damage dmg) {

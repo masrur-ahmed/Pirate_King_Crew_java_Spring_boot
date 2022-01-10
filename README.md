@@ -78,15 +78,10 @@ a DynamoDB Configuration class, and use annotations in the entity classes
 
 A bean with the name `amazonDynamoDB` is required, this bean manages the connection with the DynamoDB instance.
 
-    	@Bean
-    	public AmazonDynamoDB amazonDynamoDB() {
-    		AmazonDynamoDB amazonDynamoDB
-    				= AmazonDynamoDBClientBuilder.standard()
-    				.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration (amazonDynamoDBEndpoint, amazonAWSRegion) )
-    				.withCredentials(new AWSStaticCredentialsProvider( new BasicAWSCredentials( amazonAWSAccessKey, amazonAWSSecretKey)))
-    				.build();
-    		return amazonDynamoDB;
-    	}
+    	@Bean(name= "dynamoDB")
+        public DynamoDBMapper dynamoDBMapper() {
+            return new DynamoDBMapper(buildAmazonDynamoDB());
+        }
         
         
 ### The `Pirates` entity class (com.example.zorodemo.zorodemo.entity.Pirates.java)

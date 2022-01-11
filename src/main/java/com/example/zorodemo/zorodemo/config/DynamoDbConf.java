@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
 public class DynamoDbConf {
     @Configuration
     public class DynamoDbConfiguration {
-        private static final String DYNAMODB_URL = "http://localhost:8566";
-        private static final String SIGNINGREGION = "ap-southeast-1";
-        private static final String ACCESSKEY ="Key";
-        private static final String SECRETKEY = "Key";
+        private final String DYNAMODB_URL = "http://localhost:4566";
+        private final String SIGNINGREGION = "ap-southeast-1";
+        private final String ACCESSKEY ="Key";
+        private final String SECRETKEY = "Key";
         @Bean(name= "dynamoDB")
         public DynamoDBMapper dynamoDBMapper() {
             return new DynamoDBMapper(buildAmazonDynamoDB());

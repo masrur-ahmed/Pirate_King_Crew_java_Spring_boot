@@ -1,7 +1,7 @@
 package com.example.zorodemo.zorodemo.controller;
 
 import com.example.zorodemo.zorodemo.entity.Pirates;
-import com.example.zorodemo.zorodemo.repository.PirateRepository;
+import com.example.zorodemo.zorodemo.service.PirateAppService;
 import com.example.zorodemo.zorodemo.service.PirateAppServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +10,12 @@ import java.util.List;
 
 @RestController
 public class PirateController {
-    public PirateAppServiceImpl pirateAppService;
+    @Autowired
+    public PirateAppService pirateAppService;
 
-    public PirateController() {
-        pirateAppService = new PirateAppServiceImpl();
-    }
 
-    @PostMapping("/pirate")
+
+    @PostMapping("/pirate/")
     public Pirates savePirate(@RequestBody Pirates pirate) {
 
         return pirateAppService.savePirate(pirate);

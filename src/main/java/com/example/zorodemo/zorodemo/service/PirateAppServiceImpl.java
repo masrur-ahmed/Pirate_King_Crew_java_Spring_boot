@@ -2,14 +2,15 @@ package com.example.zorodemo.zorodemo.service;
 
 import com.example.zorodemo.zorodemo.entity.Pirates;
 import com.example.zorodemo.zorodemo.repository.PirateRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PirateAppServiceImpl implements PirateAppService{
     private PirateRepository pirateRepository;
 
-    public PirateAppServiceImpl() {
-        pirateRepository = new PirateRepository();
+    public PirateAppServiceImpl( PirateRepository pirateRepository) {
+        this.pirateRepository = pirateRepository;
     }
 
     @Override
@@ -34,6 +35,7 @@ public class PirateAppServiceImpl implements PirateAppService{
 
     @Override
     public List<String> getBestDamage(String crewid, int count, Pirates pirate) {
+
         return null;
     }
 }

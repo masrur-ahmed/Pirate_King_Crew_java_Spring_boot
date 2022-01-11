@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@Service
 public interface PirateAppService {
     public Pirates savePirate(Pirates pirate);
     public Pirates getPirate(String crewid);

@@ -3,7 +3,7 @@ package com.example.zorodemo.zorodemo.controller;
 import com.example.zorodemo.zorodemo.entity.Damage;
 import com.example.zorodemo.zorodemo.entity.Pirates;
 import com.example.zorodemo.zorodemo.repository.DamageRepository;
-import com.example.zorodemo.zorodemo.service.DamageServiceImpl;
+import com.example.zorodemo.zorodemo.service.DamageService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,10 +11,9 @@ import java.util.List;
 
 @RestController
 public class DamageController {
-    private final DamageServiceImpl dmgService;
-
-    public DamageController() {
-        dmgService =  new DamageServiceImpl();
+    private final DamageService dmgService;
+    public DamageController(DamageService damageService) {
+        this.dmgService =  damageService;
     }
 
     @PostMapping("/move")
@@ -40,7 +39,7 @@ public class DamageController {
         return dmgService.update(moveid, dmg );
     }
 
-    @GetMapping(path = "/damage/{id}/{count}")
+    @GetMapping(path = "/damage/{count}")
     public List<String> getBestDamage(@PathVariable("id") String crewid, @PathVariable("count") int count, @RequestBody Pirates pirate){
 
 

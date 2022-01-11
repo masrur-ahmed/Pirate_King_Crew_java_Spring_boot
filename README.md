@@ -84,7 +84,7 @@ A bean with the name `amazonDynamoDB` is required, this bean manages the connect
         }
         
         
-### The `Pirates` entity class (com.example.zorodemo.zorodemo.entity.Pirates.java)
+### The `Pirates` entity class (com.example.zorodemo.zorodemo.model.Pirates.java)
 The class is annotated to define it as a DynamoDB table 
 
     @DynamoDBTable(tableName = "strawhats")
@@ -102,7 +102,7 @@ And finally, each attribute
 	private String firstname
  
  
-### The `Damage` entity class (com.example.zorodemo.zorodemo.entity.Damage.java)
+### The `Damage` entity class (com.example.zorodemo.zorodemo.model.Damage.java)
 The class is annotated to define it as a DynamoDB table 
 
     @DynamoDBTable(tableName = "damage")

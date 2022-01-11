@@ -1,15 +1,17 @@
 package com.example.zorodemo.zorodemo.controller;
 
-import com.example.zorodemo.zorodemo.entity.Damage;
-import com.example.zorodemo.zorodemo.entity.Pirates;
-import com.example.zorodemo.zorodemo.repository.DamageRepository;
+import com.example.zorodemo.zorodemo.model.Damage;
+import com.example.zorodemo.zorodemo.model.Pirates;
 import com.example.zorodemo.zorodemo.service.DamageService;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @RestController
+@RequestMapping("/damageapi")
+@Api(value = "Damage Information")
 public class DamageController {
     private final DamageService dmgService;
     public DamageController(DamageService damageService) {

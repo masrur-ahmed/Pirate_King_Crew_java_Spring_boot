@@ -1,6 +1,6 @@
 package com.example.zorodemo.zorodemo.service;
 
-import com.example.zorodemo.zorodemo.entity.Pirates;
+import com.example.zorodemo.zorodemo.model.Pirates;
 import com.example.zorodemo.zorodemo.repository.PirateRepository;
 import org.springframework.stereotype.Service;
 

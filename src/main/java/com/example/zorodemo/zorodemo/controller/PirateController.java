@@ -1,14 +1,16 @@
 package com.example.zorodemo.zorodemo.controller;
 
-import com.example.zorodemo.zorodemo.entity.Pirates;
+import com.example.zorodemo.zorodemo.model.Pirates;
 import com.example.zorodemo.zorodemo.service.PirateAppService;
-import com.example.zorodemo.zorodemo.service.PirateAppServiceImpl;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/pirateapi")
+@Api(value = "PIrate Information")
 public class PirateController {
     @Autowired
     public PirateAppService pirateAppService;

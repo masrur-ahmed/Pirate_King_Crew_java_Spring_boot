@@ -1,7 +1,7 @@
 package com.example.zorodemo.zorodemo.util;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTypeConverter;
-import com.example.zorodemo.zorodemo.entity.Damage;
+import com.example.zorodemo.zorodemo.model.Damage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package com.example.zorodemo.zorodemo.entity;
+package com.example.zorodemo.zorodemo.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 

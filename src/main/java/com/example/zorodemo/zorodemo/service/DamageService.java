@@ -1,8 +1,7 @@
 package com.example.zorodemo.zorodemo.service;
 
-import com.example.zorodemo.zorodemo.entity.Damage;
-import com.example.zorodemo.zorodemo.entity.Pirates;
-import com.example.zorodemo.zorodemo.repository.DamageRepository;
+import com.example.zorodemo.zorodemo.model.Damage;
+import com.example.zorodemo.zorodemo.model.Pirates;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

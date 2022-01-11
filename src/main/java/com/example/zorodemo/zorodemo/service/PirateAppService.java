@@ -1,8 +1,6 @@
 package com.example.zorodemo.zorodemo.service;
 
-import com.example.zorodemo.zorodemo.entity.Pirates;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.example.zorodemo.zorodemo.model.Pirates;
 
 import java.util.List;
 

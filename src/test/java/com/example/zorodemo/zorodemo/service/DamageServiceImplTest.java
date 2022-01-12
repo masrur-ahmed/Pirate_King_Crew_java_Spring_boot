@@ -3,7 +3,7 @@ package com.example.zorodemo.zorodemo.service;
 import com.example.zorodemo.zorodemo.model.Damage;
 import com.example.zorodemo.zorodemo.repository.DamageRepository;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -18,9 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-class DamageServiceImplTest {
+public class DamageServiceImplTest {
     @Mock
     private DamageRepository damageRepository;
 
@@ -31,7 +30,7 @@ class DamageServiceImplTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @Test
-    void save() {
+    public void save() {
         Damage toDo = new Damage( 1,"25 Todo Sample 8", "2", 122);
         when(damageRepository.save(toDo)).thenReturn(toDo);
         Damage result = damageService.save(toDo);
@@ -39,7 +38,7 @@ class DamageServiceImplTest {
     }
 
     @Test
-    void getMoveById() {
+    public void getMoveById() {
         Damage toDo = new Damage( 1,"Santoryu", "2", 122);
         when(damageRepository.save(toDo)).thenReturn(toDo);
         Damage result = damageService.save(toDo);
@@ -50,16 +49,17 @@ class DamageServiceImplTest {
     }
 
     @Test
-    void deleteMove() {
-        Damage damage = new Damage( 1,"Santoryu", "2", 122);
-
-
-        damageService.deleteMove(1);
-        verify(damageService, times(1)).deleteMove(1);
+    public void deleteMove() {
+        Damage toDo = new Damage( 1,"25 Todo Sample 8", "2", 122);
+        when(damageRepository.save(toDo)).thenReturn(toDo);
+        Damage result = damageService.save(toDo);
+        String s = damageService.deleteMove(1);
+        assertEquals("Kicked out of the crew!",s);
+        //verify(damageRepository, times(1)).delete(1);
     }
 
     @Test
-    void update() {
+    public void update() {
         Damage damage = new Damage( 1,"Santoryu", "2", 133);
 
         damageService.update(1,damage);
@@ -68,6 +68,6 @@ class DamageServiceImplTest {
     }
 
     @Test
-    void getBestDamage() {
+    public void getBestDamage() {
     }
 }

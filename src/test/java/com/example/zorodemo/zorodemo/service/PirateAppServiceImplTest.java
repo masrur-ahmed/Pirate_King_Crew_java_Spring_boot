@@ -5,7 +5,7 @@ import com.example.zorodemo.zorodemo.model.Pirates;
 import com.example.zorodemo.zorodemo.repository.DamageRepository;
 import com.example.zorodemo.zorodemo.repository.PirateRepository;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -18,9 +18,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
-class PirateAppServiceImplTest {
+public class PirateAppServiceImplTest {
     @Mock
     private PirateRepository pirateRepository;
 
@@ -31,7 +31,7 @@ class PirateAppServiceImplTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @Test
-    void savePirate() {
+    public void savePirate() {
         Damage toDo = new Damage( 1,"25 Todo Sample 8", "2", 122);
         Pirates pirate = new Pirates("1", "Roronoa", "Zoro", "Katana", "Onigiri", false, "N/A", toDo);
         when(pirateRepository.save(pirate)).thenReturn(pirate);
@@ -40,7 +40,7 @@ class PirateAppServiceImplTest {
     }
 
     @Test
-    void getPirate() {
+    public void getPirate() {
         Damage toDo = new Damage( 1,"25 Todo Sample 8", "2", 122);
         Pirates pirates = new Pirates("1", "Roronoa", "Zoro", "Katana", "Onigiri", false, "N/A", toDo);
         when(pirateService.getPirate("1")).thenReturn(pirates);
@@ -51,23 +51,29 @@ class PirateAppServiceImplTest {
     }
 
     @Test
-    void deletePirate() {
+    public void deletePirate() {
         Damage toDo = new Damage( 1,"25 Todo Sample 8", "2", 122);
         Pirates pirates = new Pirates("1", "Roronoa", "Zoro", "Katana", "Onigiri", false, "N/A", toDo);
-        pirateService.deletePirate("1");
-        verify(pirateService, times(1)).deletePirate("1");
+
+        when(pirateRepository.save(pirates)).thenReturn(pirates);
+        Pirates result = pirateService.savePirate(pirates);
+
+        when(pirateRepository.delete("1")).thenReturn("Kicked out of the crew!");
+        String s = pirateService.deletePirate("1");
+        assertEquals("Kicked out of the crew!",s);
     }
 
     @Test
-    void updatePirate() {
+    public void updatePirate() {
         Damage toDo = new Damage( 1,"25 Todo Sample 8", "2", 999);
-        Pirates pirate = new Pirates("1", "Roronoa", "Zoro", "Katana", "Onigiri", false, "N/A", toDo);
+        Pirates pirate = new Pirates("2", "Roronoa", "Zoro", "Katana", "Onigiri", false, "N/A", toDo);
+        when(pirateRepository.update("1", pirate)).thenReturn("1");
         pirateService.updatePirate("1",pirate);
         Pirates result = pirateService.getPirate("1");
-        assertEquals(999,result.getDamage().getDamagePerMove());
+        assertEquals("2", pirate.getCrewid());
     }
 
     @Test
-    void getBestDamage() {
+    public void getBestDamage() {
     }
 }

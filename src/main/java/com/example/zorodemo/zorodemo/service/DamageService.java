@@ -12,5 +12,4 @@ public interface DamageService {
     public String deleteMove(int moveid);
     public int update(int moveid, Damage dmg);
     public List<String> getBestDamage(String crewid, int count, Pirates pirate);
-
 }

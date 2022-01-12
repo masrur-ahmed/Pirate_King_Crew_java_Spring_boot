@@ -2,11 +2,15 @@ package com.example.zorodemo.zorodemo.repository;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
+import com.example.zorodemo.zorodemo.model.Damage;
 import com.example.zorodemo.zorodemo.model.Pirates;
 import com.example.zorodemo.zorodemo.config.DynamoDbConf;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class PirateRepository {

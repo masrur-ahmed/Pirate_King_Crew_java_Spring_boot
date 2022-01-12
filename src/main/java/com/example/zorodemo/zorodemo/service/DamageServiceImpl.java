@@ -38,4 +38,6 @@ public class DamageServiceImpl implements DamageService {
     public List<String> getBestDamage(String crewid, int count, Pirates pirate) {
         return null;
     }
+
+
 }

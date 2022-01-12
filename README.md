@@ -1,7 +1,9 @@
 # Pirate_King_Crew_java_Spring_boot
 
 This repository uses Java, SpringBoot with DynamoDB 
+You can user swagger to test the REST APIS as well as can run unit/integration test. 
 
+Swagger Link: ``` localhost:8082/swagger-ui.html ```
 
 * Run `mvn verify`
 
